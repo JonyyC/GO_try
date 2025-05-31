@@ -6,6 +6,7 @@ import (
     "log"
 )
 
+// Good use of structs with JSON tags
 type FileNode struct {
     Name     string     `json:"name"`
     Type     string     `json:"type"` 
@@ -45,6 +46,7 @@ func treeHandler(w http.ResponseWriter, r *http.Request) {
     w.Header().Set("Content-Type", "application/json")
     tree := getMockTree()
     json.NewEncoder(w).Encode(tree)
+    // Missing error handling for JSON encoding errors
 }
 
 
